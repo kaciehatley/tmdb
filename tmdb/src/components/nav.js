@@ -5,7 +5,9 @@ const Nav = (props) => {
   return (
     <div style={{ marginBottom: "40px" }}>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Movie Forward</Navbar.Brand>
+        <Navbar.Brand href="#home" style={{ fontSize: "24px" }}>
+          Movie Forward
+        </Navbar.Brand>
         <Form
           inline
           className="ml-auto"
@@ -17,8 +19,11 @@ const Nav = (props) => {
             placeholder="Seach movie"
             onChange={props.handleChange}
             className="mr-sm-2"
+            id="inputSize"
           />
-          <Button variant="outline-info">Search</Button>
+          <Button type="submit" variant="outline-info">
+            Search
+          </Button>
         </Form>
       </Navbar>
     </div>

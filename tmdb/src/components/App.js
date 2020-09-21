@@ -57,10 +57,10 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
-        {/* <Search
+        <Search
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
-        /> */}
+        />
         {this.state.noResults === true ? (
           <None />
         ) : (

@@ -30,9 +30,31 @@ code {
 }
 
 .cardScale:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
 .cardDark:hover {
-  opacity: 0.3;
+  opacity: 0.2;
+}
+
+#inputSize {
+  width: 400px;
+}
+
+#searchBar {
+  display: none;
+}
+
+#modalContainer {
+  width: 800px;
+}
+
+@media only screen and (max-width: 670px) {
+  #inputSize {
+    background-color: lightblue;
+    display: none;
+  }
+  #searchBar {
+    display: block;
+  }
 }

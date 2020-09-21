@@ -6,11 +6,11 @@ const MovieList = (props) => {
   return (
     <div>
       <Container>
-        <Row style={{ margin: "auto" }}>
+        <Row>
           {props.movies.map((movie, i) => {
             console.log(movie);
             return (
-              <Col key={i} style={{ margin: "auto" }}>
+              <Col key={i}>
                 <Movie
                   key={i}
                   image={movie.poster_path}

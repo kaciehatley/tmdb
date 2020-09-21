@@ -10,7 +10,7 @@ const MovieCard = (props) => {
   const handleShow = () => setShow(true);
 
   return (
-    <div className="equal-height-columns" stye={{ marginBottom: "40px" }}>
+    <div className="equal-height-columns">
       <div onClick={handleShow} className="equal-column-content cardScale">
         <Card
           style={{
@@ -34,7 +34,7 @@ const MovieCard = (props) => {
           ) : (
             <Card.Img
               variant="top"
-              src={`https://image.tmdb.org/t/p/w185${props.image}`}
+              src={`https://image.tmdb.org/t/p/w500${props.image}`}
               alt="card image"
               style={{ width: "100% ", height: 260, border: "none" }}
             />
@@ -55,23 +55,37 @@ const MovieCard = (props) => {
         </div>
       </div>
 
-      <Modal show={show} onHide={handleClose}>
-        <Container>
-          <Card style={{ margin: "20px auto", border: "none" }}>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        id="modal"
+        style={{ marginLeft: -150 }}
+      >
+        <Container id="modalContainer">
+          <Card
+            style={{
+              border: "none",
+            }}
+          >
             <Row>
-              <Col md={4}>
+              <Col md={6} style={{ padding: "20px" }}>
                 <Card.Img
                   variant="top"
-                  src={`https://image.tmdb.org/t/p/w185${props.image}`}
+                  src={`https://image.tmdb.org/t/p/w500${props.image}`}
                   alt="card image"
                   style={{ width: "100% ", border: "none" }}
                 />
               </Col>
-              <Col md={8}>
-                <h6>{props.title}</h6>
+              <Col md={6} style={{ padding: "30px" }}>
+                <h4>
+                  <strong>{props.title}</strong>
+                </h4>
                 <p>{year}</p>
                 <p>{props.overview}</p>
-                <p>Rating: {props.vote}/10</p>
+                <p>
+                  <strong>Rating: </strong>
+                  {props.vote}/10
+                </p>
               </Col>
             </Row>
           </Card>
