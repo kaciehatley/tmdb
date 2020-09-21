@@ -6,12 +6,19 @@ const MovieList = (props) => {
   return (
     <div>
       <Container>
-        <Row>
-          <Col md={{ span: 12 }}>
-            {props.movies.map((movie, i) => {
-              return <Movie key={i} image={movie.poster_path} />;
-            })}
-          </Col>
+        <Row style={{ margin: "auto" }}>
+          {props.movies.map((movie, i) => {
+            return (
+              <Col key={i} style={{ margin: "auto" }}>
+                <Movie
+                  key={i}
+                  image={movie.poster_path}
+                  title={movie.title}
+                  date={movie.release_date}
+                />
+              </Col>
+            );
+          })}
         </Row>
       </Container>
     </div>

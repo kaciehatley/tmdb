@@ -9,7 +9,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      title: "",
+      title: "Disney",
       noResults: false,
     };
     this.tmdbAPIKey = process.env.REACT_APP_API_KEY;
@@ -28,29 +28,25 @@ class App extends Component {
         } else {
           this.setState({ noResults: false });
         }
+        console.log(this.state.movies);
       });
   };
 
   handleChange = (event) => {
-    console.log(event.target.value);
     this.setState({ title: event.target.value });
   };
 
   render() {
     return (
-      <div
-        className="App"
-        style={{
-          backgroundColor: `#0B0C10`,
-          height: `100vh`,
-          width: `100vw`,
-        }}
-      >
-        <Navbar />
-        <Search
+      <div className="App">
+        <Navbar
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
+        {/* <Search
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+        /> */}
         {this.state.noResults === true ? (
           <None />
         ) : (

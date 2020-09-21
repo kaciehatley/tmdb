@@ -1,15 +1,25 @@
 import React from "react";
-import { Navbar } from "react-bootstrap";
+import { Navbar, Form, FormControl, Button } from "react-bootstrap";
 
-const Nav = () => {
+const Nav = (props) => {
   return (
-    <div>
+    <div style={{ marginBottom: "40px" }}>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">Movie Forward</Navbar.Brand>
-        {/* <Form inline className="ml-auto">
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        <Form
+          inline
+          className="ml-auto"
+          action=""
+          onSubmit={props.handleSubmit}
+        >
+          <FormControl
+            type="text"
+            placeholder="Seach movie"
+            onChange={props.handleChange}
+            className="mr-sm-2"
+          />
           <Button variant="outline-info">Search</Button>
-        </Form> */}
+        </Form>
       </Navbar>
     </div>
   );
