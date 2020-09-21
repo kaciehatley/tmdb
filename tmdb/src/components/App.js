@@ -10,7 +10,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      title: "Disney",
+      title: "",
       noResults: false,
       currentPage: 1,
     };

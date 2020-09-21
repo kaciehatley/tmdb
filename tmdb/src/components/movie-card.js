@@ -1,11 +1,17 @@
-import React from "react";
-import { Card } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Card, Modal, Container, Row, Col } from "react-bootstrap";
+// import MovieModal from "./modal";
 
 const MovieCard = (props) => {
   const year = props.date.substring(0, 4);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="equal-height-columns" stye={{ marginBottom: "40px" }}>
-      <div className="equal-column-content">
+      <div onClick={handleShow} className="equal-column-content cardScale">
         <Card
           style={{
             width: "13rem",
@@ -13,9 +19,11 @@ const MovieCard = (props) => {
             margin: "auto",
             border: "none",
             backgroundColor: "#f5f2d0",
+            filter: "drop-shadow(20px 12px 4px black)",
             // borderRadius: "0px",
             // boxShadow: "4px 4px black",
           }}
+          className="cardDark"
         >
           {props.image == null ? (
             <Card.Img
@@ -32,17 +40,43 @@ const MovieCard = (props) => {
             />
           )}
         </Card>
-        <p
+        <div
           style={{
             color: "white",
             width: "13rem",
             textAlign: "center",
-            marginTop: "5px",
+            marginTop: "25px",
           }}
         >
-          {props.title}
-        </p>
+          <h6>{props.title}</h6>
+          <p>
+            <em>{year}</em>
+          </p>
+        </div>
       </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Container>
+          <Card style={{ margin: "20px auto", border: "none" }}>
+            <Row>
+              <Col md={4}>
+                <Card.Img
+                  variant="top"
+                  src={`https://image.tmdb.org/t/p/w185${props.image}`}
+                  alt="card image"
+                  style={{ width: "100% ", border: "none" }}
+                />
+              </Col>
+              <Col md={8}>
+                <h6>{props.title}</h6>
+                <p>{year}</p>
+                <p>{props.overview}</p>
+                <p>Rating: {props.vote}/10</p>
+              </Col>
+            </Row>
+          </Card>
+        </Container>
+      </Modal>
     </div>
   );
 };

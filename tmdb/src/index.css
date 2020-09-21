@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0b0c10;
+  background-color: #171921;
 }
 
 code {
@@ -22,5 +22,17 @@ code {
 }
 
 .equal-column-content {
-  height: 380px;
+  height: 400px;
+}
+.cardScale {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.cardScale:hover {
+  transform: scale(1.1);
+}
+
+.cardDark:hover {
+  opacity: 0.3;
 }
