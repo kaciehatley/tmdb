@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import Navbar from "./nav";
 import Search from "./search";
-
-// import { Navbar, Form, FormControl, Button } from "react-bootstrap";
-
-// import { Navbar } from "react-bootstrap";
+import MovieList from "./movies";
+import None from "./none";
 
 class App extends Component {
   constructor() {
@@ -12,6 +10,7 @@ class App extends Component {
     this.state = {
       movies: [],
       title: "",
+      noResults: false,
     };
     this.tmdbAPIKey = process.env.REACT_APP_API_KEY;
   }
@@ -23,8 +22,12 @@ class App extends Component {
     )
       .then((data) => data.json())
       .then((data) => {
-        console.log(data);
         this.setState({ movies: [...data.results] });
+        if (this.state.movies.length === 0) {
+          this.setState({ noResults: true });
+        } else {
+          this.setState({ noResults: false });
+        }
       });
   };
 
@@ -48,6 +51,11 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
+        {this.state.noResults === true ? (
+          <None />
+        ) : (
+          <MovieList movies={this.state.movies} search={this.state.title} />
+        )}
       </div>
     );
   }

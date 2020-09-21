@@ -6,7 +6,7 @@ const Search = (props) => {
     <Container>
       <Row>
         <Col md={{ span: 4, offset: 4 }} className="mt-5">
-          <Form action="" onChange={props.handleSubmit}>
+          <Form action="" onSubmit={props.handleSubmit}>
             <Form.Group>
               <Form.Control
                 placeholder="Seach movie"
