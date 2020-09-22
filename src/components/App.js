@@ -3,7 +3,8 @@ import Navbar from "./nav";
 import Search from "./search";
 import MovieList from "./movies";
 import None from "./none";
-import Pagination from "./pagination";
+import Header from "./header";
+// import Pagination from "./pagination";
 
 class App extends Component {
   constructor() {
@@ -19,19 +20,23 @@ class App extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${this.tmdbAPIKey}&query=${this.state.title}`
-    )
-      .then((data) => data.json())
-      .then((data) => {
-        this.setState({ movies: [...data.results] });
-        if (this.state.movies.length === 0) {
-          this.setState({ noResults: true });
-        } else {
-          this.setState({ noResults: false });
-        }
-        // console.log(this.state.movies);
-      });
+    if (this.state.title.replace(/\s/g, "") === "") {
+      window.location.href = "/";
+    } else {
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${this.tmdbAPIKey}&query=${this.state.title}`
+      )
+        .then((data) => data.json())
+        .then((data) => {
+          this.setState({ movies: [...data.results] });
+          if (this.state.movies.length === 0) {
+            this.setState({ noResults: true });
+          } else {
+            this.setState({ noResults: false });
+          }
+          // console.log(this.state.movies);
+        });
+    }
   };
 
   handleChange = (event) => {
@@ -39,17 +44,17 @@ class App extends Component {
   };
 
   render() {
-    let moviesPerPage = 8;
-    let indexOfLastMovie = this.state.currentPage * moviesPerPage;
-    let indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-    let currentMovies = this.state.movies.slice(
-      indexOfFirstMovie,
-      indexOfLastMovie
-    );
+    // let moviesPerPage = 8;
+    // let indexOfLastMovie = this.state.currentPage * moviesPerPage;
+    // let indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+    // let currentMovies = this.state.movies.slice(
+    //   indexOfFirstMovie,
+    //   indexOfLastMovie
+    // );
 
-    const paginate = (number) => {
-      this.setState({ currentPage: number });
-    };
+    // const paginate = (number) => {
+    //   this.setState({ currentPage: number });
+    // };
 
     return (
       <div className="App">
@@ -57,6 +62,7 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
+        <Header />
         <Search
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
@@ -67,14 +73,14 @@ class App extends Component {
           <MovieList
             // movies={this.state.movies}
             search={this.state.title}
-            movies={currentMovies}
+            movies={this.state.movies}
           />
         )}
-        <Pagination
+        {/* <Pagination
           moviesPerPage={moviesPerPage}
           totalMovies={this.state.movies.length}
           paginate={paginate}
-        />
+        /> */}
       </div>
     );
   }

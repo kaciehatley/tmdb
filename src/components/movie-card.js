@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Card, Modal, Container, Row, Col } from "react-bootstrap";
 // import MovieModal from "./modal";
 
