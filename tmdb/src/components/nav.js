@@ -5,7 +5,7 @@ const Nav = (props) => {
   return (
     <div style={{ marginBottom: "40px" }}>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home" style={{ fontSize: "24px" }}>
+        <Navbar.Brand href="/tmdb" style={{ fontSize: "24px" }}>
           Movie Forward
         </Navbar.Brand>
         <Form

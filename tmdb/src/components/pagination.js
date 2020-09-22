@@ -1,3 +1,5 @@
+// Revisit for troubleshooting
+
 import React from "react";
 
 const Pagination = (props) => {

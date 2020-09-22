@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Card, Modal, Container, Row, Col } from "react-bootstrap";
-// import MovieModal from "./modal";
 
 const MovieCard = (props) => {
   const year = props.date.substring(0, 4);
@@ -20,11 +19,10 @@ const MovieCard = (props) => {
             border: "none",
             backgroundColor: "#f5f2d0",
             filter: "drop-shadow(20px 12px 4px black)",
-            // borderRadius: "0px",
-            // boxShadow: "4px 4px black",
           }}
           className="cardDark"
         >
+          {/* conditional statement giving a default image to movies without one */}
           {props.image == null ? (
             <Card.Img
               src={`https://s3-ap-southeast-1.amazonaws.com/upcode/static/default-image.jpg`}
@@ -40,6 +38,7 @@ const MovieCard = (props) => {
             />
           )}
         </Card>
+        {/* Movie title and year display under movie image */}
         <div
           style={{
             color: "white",
@@ -55,6 +54,7 @@ const MovieCard = (props) => {
         </div>
       </div>
 
+      {/* Pops up when user selects individual movie */}
       <Modal
         show={show}
         onHide={handleClose}

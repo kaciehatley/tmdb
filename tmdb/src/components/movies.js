@@ -7,8 +7,8 @@ const MovieList = (props) => {
     <div>
       <Container>
         <Row>
+          {/* Mapping through the movie results, giving each card a key and separating the data into props */}
           {props.movies.map((movie, i) => {
-            console.log(movie);
             return (
               <Col key={i}>
                 <Movie

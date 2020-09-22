@@ -1,5 +1,7 @@
 import React from "react";
 
+// Renders when search returns zero movies
+
 const None = () => {
   console.log("none");
   return (

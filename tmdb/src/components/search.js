@@ -1,5 +1,7 @@
 import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
+
+// Search bar renders outside of nav bar on smaller viewports
 
 const Search = (props) => {
   return (
