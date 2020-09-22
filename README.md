@@ -101,4 +101,5 @@ On screens below 475px wide, cards shift to left side of screen. Screens below 1
 * Fetch additional data to add to movie details cards such as genre
 * User can search by other keywords (actors, genres)
 * Substitute inline styling for styled-components.
+* Suggestion engine with corresponding UI (Bloodhound/Typeahead)
 
