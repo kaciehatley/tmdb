@@ -21,7 +21,7 @@ class App extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.state.title.replace(/\s/g, "") === "") {
-      window.location.href = "/";
+      window.location.href = "/tmdb/";
     } else {
       fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=${this.tmdbAPIKey}&query=${this.state.title}`
